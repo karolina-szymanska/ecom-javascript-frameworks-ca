@@ -1,3 +1,5 @@
+// API HOOK:
+
 import React, { useState, useEffect } from "react";
 
 /**
@@ -19,8 +21,8 @@ function useApi(url) {
         setIsLoading(true);
         const fetchedData = await fetch(url);
         const json = await fetchedData.json();
-        console.log(json);
-        setProducts(json);
+        const items = json.data;
+        setProducts(items);
       } catch (error) {
         console.log(error);
         // Set our error state to true
@@ -52,9 +54,9 @@ function App() {
   return (
     <div>
       {products.map((product) => (
-        <div>
+        <div key={product.id}>
           <h2>{product.title}</h2>
-          <p>{product.price}</p>
+          <p>{product.price} €</p>
         </div>
       ))}
     </div>
