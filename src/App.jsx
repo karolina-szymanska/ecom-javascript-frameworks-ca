@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 
 function Home() {
-  return <div>Home</div>;
+  return <div>Home Page Content</div>;
 }
 
 function Products() {
-  return <div>Products</div>;
+  return <div>Products Page Content</div>;
 }
 
 function RouteNotFound() {
