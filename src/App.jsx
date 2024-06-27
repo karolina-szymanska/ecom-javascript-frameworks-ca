@@ -2,14 +2,6 @@ import React from "react";
 import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 import HomePage from "./pages/HomePage/index.jsx";
 
-// function Home() {
-//   return <div>Home Page Content</div>;
-// }
-
-function Products() {
-  return <div>Products Page Content</div>;
-}
-
 function RouteNotFound() {
   return <div>Page not found</div>;
 }
@@ -22,7 +14,7 @@ function Nav() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/products">Products</NavLink>
+          <NavLink to="/products">Contact</NavLink>
         </li>
       </ul>
     </nav>
@@ -62,7 +54,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="products" element={<Products />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="*" element={<RouteNotFound />} />
         </Route>
       </Routes>
