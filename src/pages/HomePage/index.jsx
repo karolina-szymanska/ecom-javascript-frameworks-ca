@@ -36,7 +36,7 @@ function useApi(url) {
   return { products, isLoading, isError };
 }
 
-function App() {
+function HomePage() {
   const { products, isLoading, isError } = useApi(
     "https://v2.api.noroff.dev/online-shop"
   );
@@ -61,4 +61,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
