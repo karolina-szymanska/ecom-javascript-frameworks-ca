@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 
 function Home() {
   return <div>Home</div>;
@@ -28,14 +28,42 @@ function Nav() {
   );
 }
 
+// Our header component that gets used in our <Layout> component
+function Header() {
+  return (
+    <header>
+      <div>Header with Logo and nav</div>
+      <Nav />
+    </header>
+  );
+}
+
+// Our footer component that gets used in our <Layout> component
+function Footer() {
+  return <footer>Website footer</footer>;
+}
+
+// The <Outlet> from react-router-dom displays any child routes, almost like
+// passing through "children" in a component
+function Layout() {
+  return (
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   return (
     <div>
-      <Nav />
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="products" element={<Products />} />
-        <Route path="*" element={<RouteNotFound />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="products" element={<Products />} />
+          <Route path="*" element={<RouteNotFound />} />
+        </Route>
       </Routes>
     </div>
   );
