@@ -1,10 +1,11 @@
 import React from "react";
 import { Routes, Route, NavLink, Outlet } from "react-router-dom";
 import HomePage from "./pages/HomePage/index.jsx";
+import Contact from "./pages/ContactPage/index.jsx";
 
-function RouteNotFound() {
-  return <div>Page not found</div>;
-}
+// function RouteNotFound() {
+//   return <div>Page not found</div>;
+// }
 
 function Nav() {
   return (
@@ -14,7 +15,7 @@ function Nav() {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/products">Contact</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </li>
       </ul>
     </nav>
@@ -55,7 +56,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<RouteNotFound />} />
+          {/* <Route path="*" element={<RouteNotFound />} /> */}
         </Route>
       </Routes>
     </div>
