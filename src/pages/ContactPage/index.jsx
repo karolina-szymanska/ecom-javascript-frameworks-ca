@@ -1,7 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { NavLink } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -32,6 +34,8 @@ const schema = yup
 function ContactPage() {
   document.title = "Contact Us | eCom";
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -42,6 +46,7 @@ function ContactPage() {
   });
 
   const onSubmit = (data) => {
+    setIsSubmitted(true);
     console.log({ data });
     reset();
   };
@@ -49,34 +54,41 @@ function ContactPage() {
   return (
     <>
       <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {isSubmitted ? (
         <div>
-          <label htmlFor="fullName">Full Name</label>
-          <input placeholder="John Kovalsky" {...register("fullName")} />
-          <p>{errors.fullName?.message}</p>
+          <p>Thank you for your submission!</p>
+          <NavLink to="/">Home</NavLink>
         </div>
-        <div>
-          <label htmlFor="email">E-mail</label>
-          <input placeholder="email@domain.com" {...register("email")} />
-          <p>{errors.email?.message}</p>
-        </div>
-        <div>
-          <label htmlFor="subject">Subject</label>
-          <input
-            placeholder="I have a question about..."
-            {...register("subject")}
-          />
-          <p>{errors.subject?.message}</p>
-        </div>
-        <div>
-          <label htmlFor="body">Message</label>
-          <input placeholder="Your message here..." {...register("body")} />
-          <p>{errors.body?.message}</p>
-        </div>
-        <button className="contact-button" type="submit">
-          Submit
-        </button>
-      </form>
+      ) : (
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <label htmlFor="fullName">Full Name</label>
+            <input placeholder="John Kovalsky" {...register("fullName")} />
+            <p>{errors.fullName?.message}</p>
+          </div>
+          <div>
+            <label htmlFor="email">E-mail</label>
+            <input placeholder="email@domain.com" {...register("email")} />
+            <p>{errors.email?.message}</p>
+          </div>
+          <div>
+            <label htmlFor="subject">Subject</label>
+            <input
+              placeholder="I have a question about..."
+              {...register("subject")}
+            />
+            <p>{errors.subject?.message}</p>
+          </div>
+          <div>
+            <label htmlFor="body">Message</label>
+            <input placeholder="Your message here..." {...register("body")} />
+            <p>{errors.body?.message}</p>
+          </div>
+          <button className="contact-button" type="submit">
+            Submit
+          </button>
+        </form>
+      )}
     </>
   );
 }
