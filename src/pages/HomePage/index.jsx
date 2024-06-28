@@ -37,6 +37,8 @@ function useApi(url) {
 }
 
 function HomePage() {
+  document.title = "Welcome | eCom";
+
   const { products, isLoading, isError } = useApi(
     "https://v2.api.noroff.dev/online-shop"
   );
@@ -50,14 +52,14 @@ function HomePage() {
   }
 
   return (
-    <div>
+    <>
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
           <p>{product.price} €</p>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 
