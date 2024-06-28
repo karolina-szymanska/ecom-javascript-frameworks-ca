@@ -51,18 +51,22 @@ function ContactPage() {
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
+          <label htmlFor="fullName">Full Name</label>
           <input {...register("fullName")} />
           <p>{errors.fullName?.message}</p>
         </div>
         <div>
+          <label htmlFor="email">E-mail</label>
           <input {...register("email")} />
           <p>{errors.email?.message}</p>
         </div>
         <div>
+          <label htmlFor="subject">Subject</label>
           <input {...register("subject")} />
           <p>{errors.subject?.message}</p>
         </div>
         <div>
+          <label htmlFor="body">Message</label>
           <input {...register("body")} />
           <p>{errors.body?.message}</p>
         </div>
