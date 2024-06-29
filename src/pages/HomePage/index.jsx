@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useApi from "../../hooks/useApi";
 import Loader from "../../components/UI/Loader";
 import Error from "../../components/UI/Error";
@@ -25,8 +25,8 @@ function HomePage() {
           <div>
             <img src={product.image.url} alt="Product" />
           </div>
-          <p>{product.price} €</p>
-          <NavLink to="/product">View product</NavLink>
+          <p>${product.price}</p>
+          <Link to="/product">View product</Link>
         </div>
       ))}
     </>
