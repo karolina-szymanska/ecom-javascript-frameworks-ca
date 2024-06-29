@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import useApi from "../../hooks/useApi";
 import Loader from "../../components/UI/Loader";
 import Error from "../../components/UI/Error";
@@ -8,7 +8,7 @@ function HomePage() {
   document.title = "Welcome | eCom";
 
   const { data, isLoading, isError } = useApi(
-    "https://v2.api.noroff.dev/online-shop"
+    "ttps://v2.api.noroff.dev/online-shop"
   );
 
   if (isLoading) return <Loader />;
@@ -26,7 +26,7 @@ function HomePage() {
             <img src={product.image.url} alt="Product" />
           </div>
           <p>${product.price}</p>
-          <Link to="/product">View product</Link>
+          <NavLink to="/product">View product</NavLink>
         </div>
       ))}
     </>

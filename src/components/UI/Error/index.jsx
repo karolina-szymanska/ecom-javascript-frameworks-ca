@@ -6,7 +6,7 @@ const Error = ({ children }) => {
   return (
     <>
       <h1>{children}</h1>
-      <BackLink>Go Home </BackLink>
+      <BackLink />
     </>
   );
 };
