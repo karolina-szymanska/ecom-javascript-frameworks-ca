@@ -11,12 +11,10 @@ const schema = yup
       .string()
       .required("Please enter your first name")
       .min(3, "Your first name should be at least 3 characters"),
-    // .typeError("Your full name should consist of letters"),
     email: yup
       .string()
       .required("Please enter your email")
       .email("Please enter a valid email format")
-      // .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, "Invalid email format")
       .typeError("Please enter a valid email address"),
     subject: yup
       .string()
@@ -27,7 +25,6 @@ const schema = yup
       .string()
       .required("Please enter your message")
       .min(3, "Your message should be at least 3 characters"),
-    // .typeError("Your message should consist of letters"),
   })
   .required();
 
@@ -57,7 +54,7 @@ function ContactPage() {
       {isSubmitted ? (
         <div>
           <p>Thank you for your submission!</p>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/">Go Home</NavLink>
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
