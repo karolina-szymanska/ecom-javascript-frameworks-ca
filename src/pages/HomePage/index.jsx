@@ -13,7 +13,7 @@ function HomePage() {
 
   if (isLoading) return <Loader />;
 
-  if (isError) return <Error title="Error Loading Products" />;
+  if (isError) return <Error>Error Loading Products</Error>;
 
   return (
     <>

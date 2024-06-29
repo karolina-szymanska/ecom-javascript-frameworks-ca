@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 // component to display the back link to Home Page
-const BackLink = (props) => {
-  return <Link to="/">{props.title}</Link>;
+const BackLink = ({ children }) => {
+  return <Link to="/">{children}</Link>;
 };
 
 export default BackLink;

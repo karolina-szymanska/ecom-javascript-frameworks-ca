@@ -2,11 +2,11 @@ import React from "react";
 import BackLink from "../BackLink";
 
 // Component to display an error
-const Error = (props) => {
+const Error = ({ children }) => {
   return (
     <>
-      <h1>{props.title}</h1>
-      <BackLink title="Go Home" />
+      <h1>{children}</h1>
+      <BackLink>Go Home </BackLink>
     </>
   );
 };
