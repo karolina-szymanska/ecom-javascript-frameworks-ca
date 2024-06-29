@@ -1,60 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-
-/**
- * the main API hook
- */
-function useApi(url) {
-  const [products, setProducts] = useState([]);
-  // State for holding loading state
-  const [isLoading, setIsLoading] = useState(false);
-  // State for holding error state
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        // Reset the error state in case there is an error previously
-        setIsError(false);
-        // Turn on the loading state each time we do an API call
-        setIsLoading(true);
-        const fetchedData = await fetch(url);
-        const json = await fetchedData.json();
-        const items = json.data;
-        setProducts(items);
-      } catch (error) {
-        console.log(error);
-        // Set our error state to true
-        setIsError(true);
-      } finally {
-        // Clear the loading state if we get an error
-        setIsLoading(false);
-      }
-    }
-
-    getData();
-  }, [url]);
-  return { products, isLoading, isError };
-}
+import useApi from "../../hooks/useApi";
+import Loader from "../../components/UI/Loader";
+import Error from "../../components/UI/Error";
 
 function HomePage() {
   document.title = "Welcome | eCom";
 
-  const { products, isLoading, isError } = useApi(
+  const { data, isLoading, isError } = useApi(
     "https://v2.api.noroff.dev/online-shop"
   );
 
-  if (isLoading) {
-    return <div>Loading</div>;
-  }
+  if (isLoading) return <Loader />;
 
-  if (isError) {
-    return <div>Error</div>;
-  }
+  if (isError) return <Error title="Error Loading Products" />;
 
   return (
     <>
-      {products.map((product) => (
+      <h1>eCom Home Page</h1>
+      <input placeholder="Search" />
+      {data.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
           <div>
