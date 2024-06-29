@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Component to display the navigation links
 const Navigation = () => {
@@ -7,10 +7,10 @@ const Navigation = () => {
     <nav>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <NavLink to="/contact">Contact</NavLink>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </nav>
