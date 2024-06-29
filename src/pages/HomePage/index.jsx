@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 /**
  * the main API hook
@@ -56,7 +57,11 @@ function HomePage() {
       {products.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
+          <div>
+            <img src={product.image.url} alt="Product" />
+          </div>
           <p>{product.price} €</p>
+          <NavLink to="/product">View product</NavLink>
         </div>
       ))}
     </>
