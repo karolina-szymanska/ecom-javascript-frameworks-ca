@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { NavLink } from "react-router-dom";
+import { BackLink } from "../../components/UI/BackLink";
 
 const schema = yup
   .object({
@@ -54,7 +54,7 @@ function ContactPage() {
       {isSubmitted ? (
         <div>
           <p>Thank you for your submission!</p>
-          <NavLink to="/">Go Home</NavLink>
+          <BackLink to="/" title="Go Home" />
         </div>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
