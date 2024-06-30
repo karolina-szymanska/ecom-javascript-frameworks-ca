@@ -60,17 +60,26 @@ function ContactPage() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="fullName">Full Name</label>
-            <input placeholder="John Kovalsky" {...register("fullName")} />
+            <input
+              aria-label="full name input"
+              placeholder="John Kovalsky"
+              {...register("fullName")}
+            />
             <p>{errors.fullName?.message}</p>
           </div>
           <div>
             <label htmlFor="email">E-mail</label>
-            <input placeholder="email@domain.com" {...register("email")} />
+            <input
+              aria-label="email input"
+              placeholder="email@domain.com"
+              {...register("email")}
+            />
             <p>{errors.email?.message}</p>
           </div>
           <div>
             <label htmlFor="subject">Subject</label>
             <input
+              aria-label="subject input"
               placeholder="I have a question about..."
               {...register("subject")}
             />
@@ -78,7 +87,11 @@ function ContactPage() {
           </div>
           <div>
             <label htmlFor="body">Message</label>
-            <input placeholder="Your message here..." {...register("body")} />
+            <input
+              aria-label="body input"
+              placeholder="Your message here..."
+              {...register("body")}
+            />
             <p>{errors.body?.message}</p>
           </div>
           <button className="contact-button" type="submit">
