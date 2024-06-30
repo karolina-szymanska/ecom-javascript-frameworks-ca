@@ -8,7 +8,7 @@ function HomePage() {
   document.title = "Welcome | eCom";
 
   const { data, isLoading, isError } = useApi(
-    "ttps://v2.api.noroff.dev/online-shop"
+    "https://v2.api.noroff.dev/online-shop"
   );
 
   if (isLoading) return <Loader />;
@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <>
       <h1>eCom Home Page</h1>
-      <input placeholder="Search" />
+      <input aria-label="search input" placeholder="Search" />
       {data.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
