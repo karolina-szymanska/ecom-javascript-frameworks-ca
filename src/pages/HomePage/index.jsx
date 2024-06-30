@@ -20,7 +20,7 @@ function HomePage() {
   return (
     <>
       <h1>eCom Home Page</h1>
-      <input aria-label="search input" placeholder="Search" />
+      <input aria-label="search input" placeholder="Search products" />
       {data.map((product) => (
         <div key={product.id}>
           <h2>{product.title}</h2>
