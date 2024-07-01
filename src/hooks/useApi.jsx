@@ -20,10 +20,10 @@ function useApi(url) {
         const items = json.data;
         setData(items);
       } catch (error) {
+        console.log(error);
         // update the loading and error state, and log the error
         setIsLoading(false);
         setIsError(true);
-        console.log(error);
       } finally {
         // Clear the loading state if we get an error
         setIsLoading(false);
