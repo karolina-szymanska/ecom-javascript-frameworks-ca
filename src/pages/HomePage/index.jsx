@@ -4,6 +4,7 @@ import useApi from "../../hooks/useApi";
 import Loader from "../../components/UI/Loader";
 import Error from "../../components/UI/Error";
 import { IoIosSearch } from "react-icons/io";
+import Search from "../../components/Search/index";
 
 function HomePage() {
   document.title = "Welcome | eCom";
@@ -22,10 +23,15 @@ function HomePage() {
     <>
       <h1>eCom Home Page</h1>
       <div style={{ position: "relative", display: "inline-block" }}>
-        <input aria-label="search input" placeholder="Search products" />
+        <input
+          type="text"
+          aria-label="search input"
+          placeholder="Search products"
+        />
         <span style={{ position: "absolute", right: 0 }}>
           <IoIosSearch size="2rem" color="cornflowerblue" />
         </span>
+        <Search />
       </div>
       {data.map((product) => (
         <div key={product.id}>
